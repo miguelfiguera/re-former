@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     def update
         @user=User.find(params[:id])
         if @user.update(user_params)
-            redit_to @user
+            redirect_to @user
         else
             render :edit
         end
