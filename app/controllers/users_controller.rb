@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     def new
+        @user=User.new
     end
 
     def create
@@ -12,7 +13,18 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        @user=User.find(params[:id])
+    end
 
+    def update
+        @user=User.find(params[:id])
+        if @user.update(user_params)
+            redit_to @user
+        else
+            render :edit
+        end
+    end
 
 
 

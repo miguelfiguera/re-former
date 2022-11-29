@@ -9,6 +9,25 @@
     <button type="submit">Submit</button>
 </form>-->
 
-<%=form_tag do%>
+<!-- <%=form_tag("/user",method:'post') do%> <-- this only accepts top level arguments, not nested hashes.
 
-<%end%>
+    <%=label_tag(:a,"First name") %> 
+    <%=text_field_tag(:a)%>
+    <%=label_tag(:b,"email") %>
+    <%=text_field_tag(:b)%>
+    <%=label_tag(:c,"password")%>
+    <%=text_field_tag(:c)%>
+    <%=submit_tag('Submit')%>
+
+<%end%> -->
+
+
+<%= form_with model: @user do |form| %>
+    <%=form.label :username, "How should we call you?" %>
+    <%=form.text_field :username%>
+    <%=form.label :email, "Email" %>
+    <%=form.email_field :email, placeholder: 'example@mail.com' %>
+    <%=form.label :password, "Password" %>
+    <%= form.password_field :password, placeholder: "*****"%>
+    <%=form.submit 'Create'%>
+<% end %>

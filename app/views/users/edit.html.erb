@@ -1,0 +1,9 @@
+<%= form_with model: @user do |form| %>
+    <%=form.label :username, "How should we call you?" %>
+    <%=form.text_field :username%>
+    <%=form.label :email, "Email" %>
+    <%=form.email_field :email, placeholder: 'example@mail.com' %>
+    <%=form.label :password, "Password" %>
+    <%= form.password_field :password, placeholder: "*****"%>
+    <%=form.submit 'Update'%>
+<% end %>
